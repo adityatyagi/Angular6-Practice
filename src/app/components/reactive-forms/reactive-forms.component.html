@@ -1,10 +1,32 @@
 <div class="container">
   <div class="row">
-    <div id="autofill-heading" class="col-md-12 text-center">
+    <div id="reactive-heading" class="col-md-12 text-center">
       <h2>Reactive form example</h2>
     </div>
-    <div id="reactive-form-example" class="col-md-6 text-center">
+    <div id="reactive-form-example" class="col-md-12 text-center">
     
+      Name: <input type="text" [formControl]="nameControl"> &nbsp;&nbsp; <button mat-raised-button color="primary" (click)='changeName()'>Change Value</button>
+      <br>
+      <br>
+      Value Change: {{ nameControl.value }}
+    
+    </div>
+  </div>
+
+  <!--Profile Form-->
+  <div class="row">
+    <div id="profile-form" class="col-md-12">
+      <form action="" formGroup='profileForm' (ngSubmit)="onSubmit()">
+        <label for="firstName">
+          First Name: <input type="text" name="firstName" id="firstName" formControlName='firstName'>
+        </label>
+        <br>
+        <label for="lastName">
+            Last Name: <input type="text" name="lastName" id="lastName" formControlName='lastName'>
+          </label>
+          <br>
+          <button mat-raised-button type="submit" color="accent" [disabled]="!profileForm.valid">Submit</button>
+      </form>
     </div>
   </div>
 </div>
