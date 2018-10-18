@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div id="autofill-heading" class="col-md-12 text-center">
+      <h2>AutoFill</h2>
+    </div>
+    <div id="autofill" class="col-md-6 text-center">
+      <form class="example-form" (ngSubmit)="submitForm();">
+        <mat-form-field class="example-full-width">
+          <input type="text" placeholder="Find me study material for..." aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <button mat-raised-button color="primary">Search</button>
+      </form>
+    </div>
+  </div>
+</div>

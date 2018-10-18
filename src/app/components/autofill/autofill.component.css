@@ -1,0 +1,10 @@
+#autofill{
+    margin: auto;
+}
+.mat-form-field{
+    display: inline;
+}
+
+#autofill-heading{
+    margin-bottom: 3rem;
+}
