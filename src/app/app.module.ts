@@ -7,11 +7,17 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { AutofillComponent } from './components/autofill/autofill.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
+// for reactive forms
+import {ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material/button';
 import { ReactiveFormsComponent } from './components/reactive-forms/reactive-forms.component';
+import { TemplateFormsComponent } from './components/template-forms/template-forms.component';
+
+// for template-driven forms
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +25,8 @@ import { ReactiveFormsComponent } from './components/reactive-forms/reactive-for
     AppComponent,
     PdfViewerComponent,
     AutofillComponent,
-    ReactiveFormsComponent
+    ReactiveFormsComponent,
+    TemplateFormsComponent
   ],
   imports: [
     BrowserModule,
