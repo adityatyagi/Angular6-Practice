@@ -5,3 +5,8 @@
 #profile-form{
     margin-top: 2rem;
 }
+
+
+#personal>label, #address>label, #alias>div>label, #alias>label{
+    width: 7rem;
+}

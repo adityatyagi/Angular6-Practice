@@ -23,12 +23,12 @@ import { ReactiveFormsComponent } from './components/reactive-forms/reactive-for
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     MatInputModule,
     BrowserAnimationsModule,
     PdfViewerModule,
     MatButtonModule,
     MatAutocompleteModule,
-    ReactiveFormsModule,
     MatFormFieldModule,
     FormsModule
   ],
