@@ -18,6 +18,10 @@ import { TemplateFormsComponent } from './components/template-forms/template-for
 
 // for template-driven forms
 import { FormsModule } from '@angular/forms';
+import { FormValidationComponent } from './components/form-validation/form-validation.component';
+import { HighlightDirective } from './shared/highlight.directive';
+import { ForbiddenNameDirective } from './shared/forbidden-name.directive';
+
 
 
 @NgModule({
@@ -26,7 +30,10 @@ import { FormsModule } from '@angular/forms';
     PdfViewerComponent,
     AutofillComponent,
     ReactiveFormsComponent,
-    TemplateFormsComponent
+    TemplateFormsComponent,
+    FormValidationComponent,
+    HighlightDirective,
+    ForbiddenNameDirective
   ],
   imports: [
     BrowserModule,

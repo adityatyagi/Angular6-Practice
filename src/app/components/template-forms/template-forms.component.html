@@ -1,22 +1,35 @@
 <div class="container">
   <div class="row">
     <div id="reactive-heading" class="col-md-12 text-center">
-      <h2>Template form example</h2>
+      <h2>Template form example + Validation</h2>
     </div>
     <!--Hero Form-->
     <div class="container">
       <h1>Hero Form</h1>
-
+      <p appHighlight>Highlight me!</p>
       <!--If form is not submitted-->
       <div [hidden]="submitted">
-        <form #heroForm='ngForm' (ngSubmit)="onSubmit();">
+        <form #heroForm='ngForm' (ngSubmit)="heroForm.valid && onSubmit(heroForm.value);">
           <div class="form-group">
             <label for="name">Name</label>
             <!-- Defining a name attribute is a requirement when using [(ngModel)] in combination with a form.-->
             <!--using template variables for Validation errors: #name='ngModel' -->
-            <input type="text" class="form-control" id="name" [(ngModel)]='model.name' name="name" required #name="ngModel">
-            <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+            <input type="text" class="form-control" id="name" [(ngModel)]='model.name' name="name" #name="ngModel" required minlength="3" appForbiddenName="bob">
+            <!-- <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
               Name is required
+            </div> -->
+            
+            <!--Template driven validations for various types pf errors-->
+            <div *ngIf="name.invalid && (name.dirty || name.touched || heroForm.submitted)" class="alert alert-danger">
+              <div *ngIf="name.errors.required">
+                Name is required.
+              </div>
+              <div *ngIf="name.errors.minlength">
+                Name must be at least 3 characters long.
+              </div>
+              <div *ngIf="name.errors.forbiddenName">
+                Name cannot be Bob or bob.
+              </div>
             </div>
           </div>
 

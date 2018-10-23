@@ -28,11 +28,11 @@ export class TemplateFormsComponent implements OnInit {
   // inital form submit status
   submitted = false;
 
-  onSubmit() {
+  onSubmit(formValue) {
     this.submitted = true;
     alert('Form Submited');
     // form data
-    console.log();
+    console.log('formValues: ', formValue);
   }
 
   // TODO: Remove this later
