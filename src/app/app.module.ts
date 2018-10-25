@@ -21,6 +21,8 @@ import { FormsModule } from '@angular/forms';
 import { FormValidationComponent } from './components/form-validation/form-validation.component';
 import { HighlightDirective } from './shared/highlight.directive';
 import { ForbiddenNameDirective } from './shared/forbidden-name.directive';
+import { IdentityRevealedDirective } from './shared/identity-revealed.directive';
+import { AlterEgoDirective } from './shared/alter-ego.directive';
 
 
 
@@ -33,7 +35,9 @@ import { ForbiddenNameDirective } from './shared/forbidden-name.directive';
     TemplateFormsComponent,
     FormValidationComponent,
     HighlightDirective,
-    ForbiddenNameDirective
+    ForbiddenNameDirective,
+    IdentityRevealedDirective,
+    AlterEgoDirective
   ],
   imports: [
     BrowserModule,

@@ -13,6 +13,76 @@
   </div>
 </div>
 
+<div>
+  <hr>
+  <br>
+  <h2>Cross Field Validations in Reactive Forms</h2>
+</div>
+
+<!--Cross Field Validation in reactive forms-->
+<div class="row">
+  <div id="heroForm" class="col-md-12">
+      <!--If form is not submitted-->
+  
+          <form [formGroup]='heroForm' (ngSubmit)="heroForm.valid && onSubmitHero(heroForm.value);">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <!-- Defining a name attribute is a requirement when using [(ngModel)] in combination with a form.-->
+              <!--using template variables for Validation errors: #name='ngModel' -->
+              <input type="text" class="form-control" id="name" formControlName="name" required minlength="3" appForbiddenName="bob">
+              
+              <!--Template driven validations for various types pf errors-->
+              <!-- <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                <div *ngIf="name.errors.required">
+                  Name is required.
+                </div>
+                <div *ngIf="name.errors.minlength">
+                  Name must be at least 3 characters long.
+                </div>
+                <div *ngIf="name.errors.forbiddenName">
+                  Name cannot be Bob or bob.
+                </div>
+              </div> -->
+            </div>
+  
+            <div class="form-group">
+              <label for="alterEgo">Alter Ego</label>
+              <input type="text" class="form-control" id="alterEgo" formControlName="alterEgo">
+              <div *ngIf="alterEgo.pending">Validating...</div>
+
+              <!--validation Message: Unique Alter Ego-->
+              <div *ngIf="alterEgo.inavlid" class="alert alert-danger">
+                <div *ngIf="alterEgo.errors?.appAlterEgo">
+                    Alter ego is already taken.
+                </div>
+              </div>
+
+              <!--Validation message: Name cannot match alter ego -->
+              <div *ngIf="heroForm.errors?.identityRevealed && (heroForm.touched || heroForm.dirty)" class="cross-validation-error-message alert alert-danger">
+                  Name cannot match alter ego.
+              </div>
+            </div>
+  
+            <div class="form-group">
+              <label for="power">Hero Power</label>
+              <select class="form-control" id="power" formControlName="power" required>
+                <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+              </select>
+            </div>
+  
+            <!--New Hero -->
+            <!--You have to clear all of the flags imperatively, which you can do by calling the form's reset() method after calling the newHero() method.-->
+            <button type="button" class="btn btn-default" (click)="newHero(); heroForm.reset()">New Hero</button>&nbsp;&nbsp;&nbsp;
+            <button type="submit" class="btn btn-success" type="submit" [disabled]="heroForm.invalid">Submit</button>
+  
+          </form>
+  </div>
+
+</div>
+
+<hr>
+<br>
+
 <!--Profile Form: FORM GROUP-->
 <div class="row">
   <div id="profile-form" class="col-md-12">

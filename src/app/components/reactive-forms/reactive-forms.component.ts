@@ -5,6 +5,7 @@ import { Validators } from '@angular/forms';
 
 // if you dont know the number of child elements in advance - Form Arrays - add FormControl to elements dynamically
 import { FormArray } from '@angular/forms';
+import { identityRevealedValidator } from 'src/app/shared/identity-revealed.directive';
 
 @Component({
   selector: 'app-reactive-forms',
@@ -12,6 +13,28 @@ import { FormArray } from '@angular/forms';
   styleUrls: ['./reactive-forms.component.css']
 })
 export class ReactiveFormsComponent implements OnInit {
+
+  // powers
+  powers = ['Really Smart', 'Super Flexible', 'Super Hot', 'Weather Changer'];
+
+    // hero form
+    heroForm = new FormGroup({
+      'name': new FormControl(),
+      'alterEgo': new FormControl(),
+      'power': new FormControl()
+    }, {validators: identityRevealedValidator});
+
+    get name() {
+      return this.heroForm.get('name');
+    }
+
+    get alterEgo() {
+      return this.heroForm.get('alterEgo');
+    }
+
+    get power() {
+      return this.heroForm.get('power');
+    }
 
   // instance of FormControl
   // setting the initial valeue to '' -> empty string
@@ -68,8 +91,23 @@ export class ReactiveFormsComponent implements OnInit {
     console.log('Profile Form: ', this.profileForm.value);
   }
 
+  onSubmitHero(formValue) {
+    console.log('formValue', formValue);
+  }
 
-  constructor(private fb: FormBuilder) { }
+  newHero() {
+    alert('Creating new hero');
+  }
+
+  constructor(private fb: FormBuilder) {
+
+    // bringing the values of the form from the db and displaying them
+    this.heroForm.setValue({
+      name: 'Aditya',
+      alterEgo: 'Sanju Metha',
+      power: 'Super Flexible'
+    });
+  }
 
   ngOnInit() {
   }
