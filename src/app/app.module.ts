@@ -23,6 +23,8 @@ import { HighlightDirective } from './shared/highlight.directive';
 import { ForbiddenNameDirective } from './shared/forbidden-name.directive';
 import { IdentityRevealedDirective } from './shared/identity-revealed.directive';
 import { AlterEgoDirective } from './shared/alter-ego.directive';
+import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
+import { DynamicFormQuestionComponent } from './components/dynamic-form-question/dynamic-form-question.component';
 
 
 
@@ -37,7 +39,9 @@ import { AlterEgoDirective } from './shared/alter-ego.directive';
     HighlightDirective,
     ForbiddenNameDirective,
     IdentityRevealedDirective,
-    AlterEgoDirective
+    AlterEgoDirective,
+    DynamicFormComponent,
+    DynamicFormQuestionComponent
   ],
   imports: [
     BrowserModule,
