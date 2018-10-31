@@ -25,6 +25,7 @@ import { IdentityRevealedDirective } from './shared/identity-revealed.directive'
 import { AlterEgoDirective } from './shared/alter-ego.directive';
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { DynamicFormQuestionComponent } from './components/dynamic-form-question/dynamic-form-question.component';
+import { OurHeroesComponent } from './components/our-heroes/our-heroes.component';
 
 
 
@@ -41,7 +42,8 @@ import { DynamicFormQuestionComponent } from './components/dynamic-form-question
     IdentityRevealedDirective,
     AlterEgoDirective,
     DynamicFormComponent,
-    DynamicFormQuestionComponent
+    DynamicFormQuestionComponent,
+    OurHeroesComponent
   ],
   imports: [
     BrowserModule,
