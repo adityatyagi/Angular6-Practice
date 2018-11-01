@@ -1,5 +1,40 @@
+<div id="strDirective">
+  <h3>Structural Directive Example: </h3>
+  <br>
+  <p>The condition is currently {{condition}}</p>&nbsp;&nbsp;<button (click)='condition=!condition'>Click to toggle condition</button>
+  <br>
+  <br>
+  <p *appUnless="condition" class="unless a">
+    (A) This paragraph is displayed because the condition is false.
+  </p>
+  
+  <p *appUnless="!condition" class="unless b">
+    (B) Although the condition is true,
+    this paragraph is displayed because appUnless is set to false.
+  </p>
+</div>
+<br>
+<br>
+<hr>
+<div id="attDirective">
+  <h3>Attribute Directive Example: Highlight</h3>
+  <br>
+  <h5>Pick a color to highlight it</h5>
+  <input type="radio" name="colors" (click)="color='green'">Green <br>
+  <input type="radio" name="colors" (click)="color='red'">Red <br>
+  <input type="radio" name="colors" (click)="color='pink'">Pink <br>
+  <input type="radio" name="colors" (click)="color='yellow'">Yellow <br>
+  <input type="radio" name="colors" (click)="color=''">Default <br>
+  <br>
+  <br>
+  <p [appAttr]="color" [defaultColor]="'orange'">This is sample text. Bring your mouse here.</p>
+  {{color}}
+</div>
+<br>
+<br>
+<hr>
 <div id="ourHeroesForm">
-
+  <h2>Little tour of our heroes</h2>
     <input #newHero
     (keyup.enter)="addHero(newHero.value)"
     (blur)="addHero(newHero.value); newHero.value='' ">
@@ -11,3 +46,4 @@
 <br>
 <br>
 </div>
+

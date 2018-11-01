@@ -26,6 +26,8 @@ import { AlterEgoDirective } from './shared/alter-ego.directive';
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { DynamicFormQuestionComponent } from './components/dynamic-form-question/dynamic-form-question.component';
 import { OurHeroesComponent } from './components/our-heroes/our-heroes.component';
+import { AttrDirective } from './shared/attr.directive';
+import { UnlessDirective } from './shared/unless.directive';
 
 
 
@@ -43,7 +45,9 @@ import { OurHeroesComponent } from './components/our-heroes/our-heroes.component
     AlterEgoDirective,
     DynamicFormComponent,
     DynamicFormQuestionComponent,
-    OurHeroesComponent
+    OurHeroesComponent,
+    AttrDirective,
+    UnlessDirective
   ],
   imports: [
     BrowserModule,

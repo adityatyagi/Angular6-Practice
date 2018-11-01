@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./our-heroes.component.css']
 })
 export class OurHeroesComponent implements OnInit {
+  // highlight directive
+  color: string;
+
   heroes = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
   addHero(newHero: string) {
     if (newHero) {
