@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HEROES } from 'src/app/shared/pipes/heroes';
 
 @Component({
   selector: 'app-our-heroes',
@@ -6,18 +7,52 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./our-heroes.component.css']
 })
 export class OurHeroesComponent implements OnInit {
+  heroes = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
+
   // highlight directive
   color: string;
 
-  heroes = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
+
+  // pipes - Filter heroes that can fly and the ones who cant
+  heros: any = [];
+  canFly = false;
+
+  constructor() {
+    this.reset();
+   }
+
+  ngOnInit() {
+  }
+
   addHero(newHero: string) {
     if (newHero) {
       this.heroes.push(newHero);
     }
   }
-  constructor() { }
 
-  ngOnInit() {
+  flyingStatus() {
+    this.canFly = !this.canFly;
   }
+  // add hero
+  addHero2(name: string) {
+    // trim the extra spaces before and after the name
+    name = name.trim();
+
+    if (!name) {
+      return false;
+    } else {
+      const hero = {
+        name,
+        canFly: this.canFly
+      };
+      console.log('hero', hero);
+      this.heros.push(hero);
+    }
+
+  }
+  reset() {
+    this.heros = HEROES.slice();
+  }
+
 
 }

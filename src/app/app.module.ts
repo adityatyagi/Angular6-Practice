@@ -28,6 +28,7 @@ import { DynamicFormQuestionComponent } from './components/dynamic-form-question
 import { OurHeroesComponent } from './components/our-heroes/our-heroes.component';
 import { AttrDirective } from './shared/attr.directive';
 import { UnlessDirective } from './shared/unless.directive';
+import { FlyingHeroesPipe } from './shared/pipes/flying-heroes.pipe';
 
 
 
@@ -47,7 +48,8 @@ import { UnlessDirective } from './shared/unless.directive';
     DynamicFormQuestionComponent,
     OurHeroesComponent,
     AttrDirective,
-    UnlessDirective
+    UnlessDirective,
+    FlyingHeroesPipe
   ],
   imports: [
     BrowserModule,

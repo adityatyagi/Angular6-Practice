@@ -1,3 +1,30 @@
+<div id="pipesDiv">
+  <h3>Pipes: </h3>
+  <br>
+  <label for="newHero">New Flying Hero</label>&nbsp;&nbsp;
+  <input type="text" #box
+          (keyup.enter)="addHero2(box.value); box.value=''"
+          placeholder="hero name">&nbsp;&nbsp;<input type="checkbox" #a (click)='flyingStatus();' name="canFly" id="canFly"> Can Fly <br>
+  <button (click)="reset()" class='btn btn-warn'>Reset List</button>&nbsp;&nbsp;&nbsp;
+  <button (click)="addHero2(box.value); box.value=''; a.checked=false;" class='btn btn-primary'>Add</button>&nbsp;&nbsp; 
+  <button (click)="box.value=''; a.checked=false;" class='btn btn-secondary'>Clear</button>
+  <br>
+  <br>
+  <h4>Heroes who fly</h4>
+  <div *ngFor="let hero of (heros | flyingHeroes)">
+    {{hero.name}}
+  </div>
+  <br>
+  <br>
+  <h4>All Heroes</h4>
+  <div *ngFor="let hero of heros">
+    {{hero.name}}
+  </div>
+  <br>
+</div>
+<br>
+<br>
+<hr>
 <div id="strDirective">
   <h3>Structural Directive Example: </h3>
   <br>
