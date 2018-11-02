@@ -7,6 +7,7 @@ import { HEROES } from 'src/app/shared/pipes/heroes';
   styleUrls: ['./our-heroes.component.css']
 })
 export class OurHeroesComponent implements OnInit {
+  condition: any;
   heroes = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
 
   // highlight directive

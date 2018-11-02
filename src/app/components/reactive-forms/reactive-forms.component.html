@@ -51,7 +51,7 @@
               <div *ngIf="alterEgo.pending">Validating...</div>
 
               <!--validation Message: Unique Alter Ego-->
-              <div *ngIf="alterEgo.inavlid" class="alert alert-danger">
+              <div *ngIf="alterEgo.invalid" class="alert alert-danger">
                 <div *ngIf="alterEgo.errors?.appAlterEgo">
                     Alter ego is already taken.
                 </div>

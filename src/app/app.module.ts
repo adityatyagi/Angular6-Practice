@@ -29,6 +29,9 @@ import { OurHeroesComponent } from './components/our-heroes/our-heroes.component
 import { AttrDirective } from './shared/attr.directive';
 import { UnlessDirective } from './shared/unless.directive';
 import { FlyingHeroesPipe } from './shared/pipes/flying-heroes.pipe';
+import { ObservComponent } from './components/observ/observ.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -49,7 +52,8 @@ import { FlyingHeroesPipe } from './shared/pipes/flying-heroes.pipe';
     OurHeroesComponent,
     AttrDirective,
     UnlessDirective,
-    FlyingHeroesPipe
+    FlyingHeroesPipe,
+    ObservComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +64,9 @@ import { FlyingHeroesPipe } from './shared/pipes/flying-heroes.pipe';
     MatButtonModule,
     MatAutocompleteModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
