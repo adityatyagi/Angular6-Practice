@@ -35,6 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CrisisListComponent } from './components/crisis-list/crisis-list.component';
 import { HeroListComponent } from './components/hero-list/hero-list.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { HeroesModule } from './heroes/heroes.module';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     MatFormFieldModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HeroesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
