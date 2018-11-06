@@ -1,4 +1,20 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<!--Routing Example-->
+<div class="container">
+    <h1>Angular Router</h1>
+<nav>
+  <a routerLink="/crisis-center" routerLinkActive="active" class="btn btn-primary btn-margin">Crisis Center</a>
+  <a routerLink="/heroes" routerLinkActive="active" class="btn btn-warning btn-margin">Heroes</a>
+  <!--To check the wildcard route-->
+  <button routerLink="/sidekicks" class="btn btn-default btn-margin">Check sidekicks (Wildcard Routes)</button><br>
+</nav>
+<br>
+<br>
+<router-outlet></router-outlet>
+</div>
+<br>
+<br>
+<hr>
 <br>
 <br>
 <div class="container">
@@ -9,7 +25,7 @@
     <button routerLink='/orders'>Orders</button>
     <button routerLink=''>Home</button>
     <br>
-    <router-outlet></router-outlet>
+    <!-- <router-outlet></router-outlet> -->
 </div>
 <hr>
 <br>

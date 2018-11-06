@@ -32,8 +32,9 @@ import { FlyingHeroesPipe } from './shared/pipes/flying-heroes.pipe';
 import { ObservComponent } from './components/observ/observ.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-
-
+import { CrisisListComponent } from './components/crisis-list/crisis-list.component';
+import { HeroListComponent } from './components/hero-list/hero-list.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,10 @@ import { HttpClientModule } from '@angular/common/http';
     AttrDirective,
     UnlessDirective,
     FlyingHeroesPipe,
-    ObservComponent
+    ObservComponent,
+    CrisisListComponent,
+    HeroListComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
