@@ -36,6 +36,7 @@ import { CrisisListComponent } from './components/crisis-list/crisis-list.compon
 import { HeroListComponent } from './components/hero-list/hero-list.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HeroesModule } from './heroes/heroes.module';
+import { ReactiveForms2Component } from './components/reactive-forms2/reactive-forms2.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { HeroesModule } from './heroes/heroes.module';
     ObservComponent,
     CrisisListComponent,
     HeroListComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ReactiveForms2Component
   ],
   imports: [
     BrowserModule,

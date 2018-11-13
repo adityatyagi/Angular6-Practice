@@ -1,0 +1,92 @@
+<div id="content">
+  <input type="text" name="name" id="name" [formControl]='name'>
+  Form Field Value: {{name.value}}
+  <br>
+  <br>
+  <button (click)="updateName();">Update Name</button>
+  <br>
+  <br>
+  <h3>Form Group Example</h3>
+  <br>
+  <br>
+
+  <form [formGroup]='profileEditor' (ngSubmit)='onSubmit()'>
+    <h4>Personal Details</h4>
+    <div class="form-group">
+      <label for="firstName">First Name: </label>
+      <input type="text" name="firstname" id="firstName" formControlName='firstName' required>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name: </label>
+      <input type="text" name="lastName" id="lastName" formControlName='lastName' required>
+    </div>
+    <div class="form-group">
+      <label for="age">Age: </label>
+      <input type="text" name="age" id="age" formControlName='age'>
+    </div>
+    <br>
+    <h4>Address</h4>
+    <div formGroupName='address'>
+      <div class="form-group">
+        <label for="address1">Address Line 1</label>
+        <input type="text" name="addressLine1" id="addressLine1" formControlName='address1'>
+      </div>
+      <div class="form-group">
+        <label for="address2">Address Line 2</label>
+        <input type="text" name="addressLine2" id="addressLine2" formControlName='address2'>
+      </div>
+      <div class="form-group">
+        <label for="pincode">Pincode</label>
+        <input type="text" name="pincode" id="pincode" formControlName='pincode'>
+      </div>
+  </div>
+    <br>
+    <button type="submit" [disabled]="!profileEditor.valid">Submit</button>
+  </form>
+<br>
+<br>
+<div id="btns">
+  <button (click)='updateAll()'>Set Value - Update the entire form</button>
+  <br>
+  <br>
+  <button (click)='updateAddress()'>Patch Value - Update only address fields</button>
+</div>
+<br>
+<br>
+<br>
+<br>
+<h3>College Group - Form Builder</h3>
+<form [formGroup]='collegeForm' (ngSubmit)='onCollegeFormSubmit()'>
+  <input type="text" name="fname" id="fname" formControlName='fName' placeholder="First Name" required><br>
+  <br>
+  <input type="text" name="lName" id="lName" formControlName='lName' placeholder="Last Name" required><br>
+  <br>
+  <input type="number" name="contact" id="contact" formControlName='phoneNumber' placeholder="Contact Number">
+  <br>
+  <br>
+  <div formGroupName='addressStudent'>
+    <input type="text" name="add1" id="add1" formControlName='add1' placeholder="Address Line 1">
+    <br>
+    <br>
+    <input type="text" name="add1" id="add1" formControlName='add2' placeholder="Address Line 2">
+    <br>
+    <br>
+    <input type="text" name="code" id="code" formControlName='code' placeholder="Pincode">
+    <br>
+    <br>
+  </div>
+  <br>
+  <div formArrayName="subjects">
+    Subjects:    <button type="button" (click)="addSubject();">Add Subject</button><br>
+    <div *ngFor="let address of subjects.controls; let i=index">
+      <label for="subject">
+        Subject: <input type="text" name="subject" [formControlName]=i>
+      </label>
+    </div>
+  </div>
+  </form>
+  <button type="submit">Submit</button>
+  <p>
+      College Form Status: {{ collegeForm.status }}
+  </p>
+</div>
