@@ -5,6 +5,7 @@ export interface NHData {
   univeristy: {
     colleges: string[],
     branches: string[],
+    semesters: string[],
     subjects: [
       {
         branch: string[]
@@ -25,10 +26,24 @@ export class PersonaliseNhComponent implements OnInit {
   nhDataUrl = 'http://localhost:4200/assets/data.json';
   newData: NHData;
 
+  // show/hide data
   showdata = false;
   showdata2 = false;
   dataStatus = 'Show Data';
   dataStatus2 = 'Show Data';
+
+  // filling form selects
+  universities: ['GGSIPU', 'RTU'];
+  colleges: string[];
+  branches: string[];
+  semesters: string[];
+
+  populateData() {
+    this.colleges = this.newData.univeristy.colleges;
+    this.branches = this.newData.univeristy.branches;
+    this.semesters = this.newData.univeristy.semesters;
+  }
+
   // ----------- Class Methods -----------
 
   getData2() {
@@ -40,6 +55,7 @@ export class PersonaliseNhComponent implements OnInit {
     this.getData2().subscribe((data: NHData) => this.newData = { ...data });
   }
 
+  // show/hide of nh data in a cleaner format
   showData2() {
     console.log(this.newData);
     this.showdata2 = !this.showdata2;

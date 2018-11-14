@@ -2,6 +2,7 @@
     "university": {
         "colleges": ["col1","col2","col3","col4","col5","col6"],
         "branches": ["bran1","bran2","bran3","bran4","bran5","bran6","bran7"],
+        "semesters": ["1","2","3","4","5","6","7","8"],
         "subjects": [
             {"branch1": ["sub1", "sub2"]},
             {"branch2": ["sub3", "sub4"]}

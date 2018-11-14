@@ -17,3 +17,53 @@
 <br>
 <h1>Personalise Form</h1>
 
+<form>
+  <!--Univeristy-->
+  <div class="form-group">
+    <label for="university">University</label>
+    <select class="form-control" id="university">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+
+  <!--College-->
+  <div class="form-group">
+      <label for="college">College</label>
+      <select class="form-control" id="college">
+        <option *ngFor="let opt of universities" [value]='opt'>{{opt}}</option>
+      </select>
+    </div>
+
+    <!--Branch-->
+  <div class="form-group">
+      <label for="branch">Branch/Stream</label>
+      <select class="form-control" id="branch">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+
+    <!--Semester-->
+  <div class="form-group">
+      <label for="semester">Semester</label>
+      <select class="form-control" id="semester">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+
+    <!--Buttons-->
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</form>
