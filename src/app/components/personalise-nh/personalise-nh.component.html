@@ -1,0 +1,19 @@
+<h2>Test Data</h2>
+<p>
+  {{newData | json}}
+</p>
+
+<button (click)="showData2();">{{dataStatus2}}</button>
+<br>
+<div *ngIf="showdata2">
+  <strong>Colleges:</strong> {{newData.university.colleges}} <br>
+  <strong>Branches:</strong> {{newData.university.branches}} <br>
+  <h3>Subjects</h3>
+  <strong>Branch 1:</strong> {{newData.university.subjects[0].branch1 | json}} <br><br>
+  <strong>Branch 2:</strong> {{newData.university.subjects[1].branch2 | json}} <br><br>
+</div> 
+<hr>
+<br>
+<br>
+<h1>Personalise Form</h1>
+

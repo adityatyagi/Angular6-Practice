@@ -31,12 +31,15 @@ import { UnlessDirective } from './shared/unless.directive';
 import { FlyingHeroesPipe } from './shared/pipes/flying-heroes.pipe';
 import { ObservComponent } from './components/observ/observ.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
 import { CrisisListComponent } from './components/crisis-list/crisis-list.component';
 import { HeroListComponent } from './components/hero-list/hero-list.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HeroesModule } from './heroes/heroes.module';
 import { ReactiveForms2Component } from './components/reactive-forms2/reactive-forms2.component';
+import { PersonaliseNhComponent } from './components/personalise-nh/personalise-nh.component';
+
+// Http
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -60,7 +63,8 @@ import { ReactiveForms2Component } from './components/reactive-forms2/reactive-f
     CrisisListComponent,
     HeroListComponent,
     PageNotFoundComponent,
-    ReactiveForms2Component
+    ReactiveForms2Component,
+    PersonaliseNhComponent
   ],
   imports: [
     BrowserModule,
