@@ -1,64 +1,42 @@
-<h2>Test Data</h2>
-<p>
-  {{newData | json}}
-</p>
-
-<button (click)="showData2();">{{dataStatus2}}</button>
-<br>
-<div *ngIf="showdata2">
-  <strong>Colleges:</strong> {{newData.university.colleges}} <br>
-  <strong>Branches:</strong> {{newData.university.branches}} <br>
-  <h3>Subjects</h3>
-  <strong>Branch 1:</strong> {{newData.university.subjects[0].branch1 | json}} <br><br>
-  <strong>Branch 2:</strong> {{newData.university.subjects[1].branch2 | json}} <br><br>
-</div> 
-<hr>
-<br>
 <br>
 <h1>Personalise Form</h1>
-
-<form>
+<form [formGroup]="personalForm" (ngSubmit)="onSubmitPersonalForm();">
   <!--Univeristy-->
   <div class="form-group">
     <label for="university">University</label>
-    <select class="form-control" id="university">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
+    <select class="form-control" id="university" formControlName="universityName">
+      <option *ngFor="let university of uNames" [value]="university">{{university}}</option>
     </select>
   </div>
 
   <!--College-->
   <div class="form-group">
       <label for="college">College</label>
-      <select class="form-control" id="college">
-        <option *ngFor="let opt of universities" [value]='opt'>{{opt}}</option>
+      <select class="form-control" id="college" formControlName="collegeName">
+        <option *ngFor="let college of cNames" [value]="college">{{college}}</option>
       </select>
     </div>
 
     <!--Branch-->
   <div class="form-group">
       <label for="branch">Branch/Stream</label>
-      <select class="form-control" id="branch">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
+      <select class="form-control" id="branch" formControlName="branchName">
+        <option *ngFor="let branch of bNames" [value]="branch">{{branch}}</option>
       </select>
     </div>
 
     <!--Semester-->
   <div class="form-group">
       <label for="semester">Semester</label>
-      <select class="form-control" id="semester">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
+      <select class="form-control" id="semester" formControlName="semesterName">
+        <option *ngFor="let semester of sNames" [value]="semester">{{semester}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="subject">Subjects</label>
+      <select class="form-control" id="subject" formControlName="subjectName">
+        <option *ngFor="let subject of subNames" [value]="subject">{{subject}}</option>
       </select>
     </div>
 
@@ -67,3 +45,17 @@
       <button type="submit" class="btn btn-primary">Save</button>
     </div>
 </form>
+
+<br>
+<br>
+<h3>Personal Form Values</h3>
+<br>
+University: {{universityName}} <br>
+College: {{collegeName}} <br>
+Branch: {{branchName}} <br>
+Semester: {{semesterName}} <br>
+Subject: {{subjectName}} <br>
+
+<br>
+<br> 
+<button (click)="populateData();">Populate Data in Select Fields</button>
