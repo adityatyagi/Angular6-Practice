@@ -65,6 +65,8 @@ export class PersonaliseNhComponent implements OnInit {
     return this.personalForm.get('subjectName').value;
   }
 
+  // my subjects
+  mySubjects: string[] = ['Operating System', 'Production Technology'];
   // ------------------------------------------ Class Methods -----------------------------------------------
   getData2() {
     // get an observable of NHData
@@ -103,7 +105,12 @@ export class PersonaliseNhComponent implements OnInit {
     alert('Changes accepted.');
     console.log('Form Values: ', this.personalForm.value);
   }
-  // ----------- Constructor AND ngOnInit -----------
+
+  // add subject
+  addSubject() {
+    alert('Subject Added.');
+  }
+  // ------------------------------ Constructor AND ngOnInit ----------------------------------
   constructor(private http: HttpClient, private fb: FormBuilder) { }
 
   ngOnInit() {
