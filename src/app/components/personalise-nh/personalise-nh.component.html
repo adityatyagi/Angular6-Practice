@@ -1,8 +1,13 @@
 <br>
 <h1>Personalise Form</h1>
 <br>
-<button (click)="populateData();" class="btn btn-warn">Populate Data in Select Fields</button>
+
 <br>
+<!-- Loading Status: {{loadings | json}} -->
+<ng-container *ngIf="loadings">
+    <mat-spinner class="loading-spinner"></mat-spinner>
+</ng-container>
+<div *ngIf="!loadings">
 <form [formGroup]="personalForm" (ngSubmit)="onSubmitPersonalForm();">
   <!--Univeristy-->
   <div class="form-group">
@@ -62,6 +67,7 @@
       <button type="submit" class="btn btn-primary" style="float: right;">Save</button>
     </div>
 </form>
+</div>
 
 <br>
 <br>
@@ -74,3 +80,22 @@ Semester: {{semesterName}} <br>
 Subject: {{subjectName}} <br>
 <br>
 <br> 
+
+<h1>Testing Loader with Async Response</h1>
+<div  *ngIf="user | async; let user; else loading">
+    <h2>{{(user)?.firstName}} {{(user)?.lastName}}</h2>
+    <dl>
+      <dt>Age:</dt>
+      <dd>{{(user)?.age}}</dd>
+  
+      <dt>Height:</dt>
+      <dd>{{(user)?.height}}</dd>
+  
+      <dt>Mass:</dt>
+      <dd>{{(user)?.mass}}</dd>
+  
+      <dt>Home World:</dt>
+      <dd>{{(user)?.homeworld}}</dd>
+    </dl>
+  </div>
+  <ng-template #loading><mat-spinner class="loading-spinner"></mat-spinner></ng-template>

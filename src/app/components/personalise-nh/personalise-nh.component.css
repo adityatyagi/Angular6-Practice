@@ -8,3 +8,8 @@
 
 .removeButton{
 }
+
+.loading-spinner{
+    position: relative;
+    left: 30rem;
+}

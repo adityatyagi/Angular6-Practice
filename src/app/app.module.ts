@@ -7,6 +7,7 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { AutofillComponent } from './components/autofill/autofill.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 // for reactive forms
 import {ReactiveFormsModule} from '@angular/forms';
@@ -75,6 +76,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatAutocompleteModule,
     MatFormFieldModule,
+    MatProgressSpinnerModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { delay, share } from 'rxjs/operators';
+import { of, Observable } from 'rxjs';
 
 export interface Universities {
     _id: string;
@@ -23,6 +25,10 @@ export interface Universities {
 export class PersonaliseNhComponent implements OnInit {
 
   // ----------- Class Properties -----------
+
+  // test
+  user: Observable<{}>;
+  loadings = true;
 
   nhDataUrl = 'http://localhost:4200/assets/data.json';
   universityData: Universities[] = [];
@@ -68,21 +74,38 @@ export class PersonaliseNhComponent implements OnInit {
   // my subjects
   mySubjects: string[] = ['Operating System', 'Production Technology'];
   // ------------------------------------------ Class Methods -----------------------------------------------
+
+  getAsyncData() {
+    // Fake Slow Async Data
+   return of({
+     firstName: 'Luke',
+     lastName: 'Skywalker',
+     age: 65,
+     height: 172,
+     mass: 77,
+     homeworld: 'Tatooine'
+   }).pipe(
+     delay(3000)
+   );
+ }
   getData2() {
     // get an observable of NHData
     return this.http.get<Universities[]>(this.nhDataUrl);
   }
 
   fetchData() {
+    console.log('Loading Status: ' + this.loadings );
     this.getData2().subscribe((data: Universities[]) => {
       this.universityData = data;
-      console.log(this.universityData['universities']);
+      this.populateData();
+      console.log('Data Loaded Successfully.');
+      this.loadings = false;
+      console.log('Loading Status: ' + this.loadings );
     });
   }
 
   // populating data from the server data
   populateData() {
-    alert('Populating Data...');
     // fetch the university names from the array and push it into univeristies
     for (let i = 0; i < this.universityData['universities'].length; i++) {
       this.uNames.push(this.universityData['universities'][i].name);
@@ -95,7 +118,6 @@ export class PersonaliseNhComponent implements OnInit {
     // fetch branch name
     const subjectKey =  Object.keys(this.universityData['universities'][0].subjects[0])[0];
     if (subjectKey === 'IT') {
-      alert('Fetch IT Subjects');
       this.subNames = this.universityData['universities'][0].subjects[0][subjectKey];
     }
   }
@@ -110,12 +132,14 @@ export class PersonaliseNhComponent implements OnInit {
   addSubject() {
     alert('Subject Added.');
   }
+  
   // ------------------------------ Constructor AND ngOnInit ----------------------------------
   constructor(private http: HttpClient, private fb: FormBuilder) { }
 
   ngOnInit() {
-    // fetch nh data
     this.fetchData();
+    // test
+    this.user = this.getAsyncData().pipe(share());
   }
 
 }
