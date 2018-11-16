@@ -98,9 +98,7 @@ export class PersonaliseNhComponent implements OnInit {
     this.getData2().subscribe((data: Universities[]) => {
       this.universityData = data;
       this.populateData();
-      console.log('Data Loaded Successfully.');
       this.loadings = false;
-      console.log('Loading Status: ' + this.loadings );
     });
   }
 

@@ -1,0 +1,166 @@
+{
+    "universities": [
+        {
+            "_id": "1",
+            "name": "Guru Gobind Singh Indraprastha University",
+            "colleges": ["NIEC","Amity University","GTBIT","BVP","BMIET","IIT Delhi"],
+            "courses": [
+                {
+                    "_courseId": "11",
+                    "_courseName": "B.Tech",
+                    "_branches": [
+                        {
+                            "_branchId": "111",
+                            "_branchName": "IT",
+                            "_semesters": [
+                                {
+                                    "_semesterId": "1111",
+                                    "semesterNumber": "1",
+                                    "_subejcts": ["Operating System-1", "Applied Mathematics III-1"]
+                                },
+                                {
+                                    "_semesterId": "1112",
+                                    "semesterNumber": "2",
+                                    "_subejcts": ["Operating System-2", "Applied Mathematics III-2"]
+                                },
+                                {
+                                    "_semesterId": "1113",
+                                    "semesterNumber": "3",
+                                    "_subejcts": ["Operating System-3", "Applied Mathematics III-3"]
+                                },
+                                {
+                                    "_semesterId": "1114",
+                                    "semesterNumber": "4",
+                                    "_subejcts": ["Operating System-4", "Applied Mathematics III-4"]
+                                },
+                                {
+                                    "_semesterId": "1115",
+                                    "semesterNumber": "5",
+                                    "_subejcts": ["Operating System-5", "Applied Mathematics III-5"]
+                                },
+                                {
+                                    "_semesterId": "1116",
+                                    "semesterNumber": "6",
+                                    "_subejcts": ["Operating System-6", "Applied Mathematics III-6"]
+                                },
+                                {
+                                    "_semesterId": "1117",
+                                    "semesterNumber": "7",
+                                    "_subejcts": ["Operating System-7", "Applied Mathematics III-7"]
+                                },
+                                {
+                                    "_semesterId": "1118",
+                                    "semesterNumber": "8",
+                                    "_subejcts": ["Operating System-8", "Applied Mathematics III-8"]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "all_coursesData": [
+                {
+                    "_courseId": "11",
+                    "_courseName": "B.Tech",
+                    "_branchesAndSubjects": [
+                        {"IT": ["Operating System", "Applied Mathematics III"]},
+                        {"ME": ["Material Science", "Production Technology"]}
+                    ],
+                    "semesters":["1","2","3","4","5","6","7","8"]
+
+                },
+                {
+                    "_courseId": "12",
+                    "_courseName": "B.Com",
+                    "_branchesAndSubjects": [
+                        {"Common": ["Entrepreneuship", "Microsoft Excel"]},
+                        {"Marketing": ["Marketing in Budget", "Macro Economy"]}
+                    ],
+                    "semesters":["1","2","3","4","5","6"]
+
+                }
+            ]
+        },
+        {
+            "_id": "2",
+            "name": "Rajasthan Technical University",
+            "colleges": ["NIEC","Amity University","GTBIT","BVP","BMIET","IIT Delhi"],
+            "courses": [
+                {
+                    "_courseId": "11",
+                    "_courseName": "B.Tech",
+                    "_branches": [
+                        {
+                            "_branchId": "111",
+                            "_branchName": "IT",
+                            "_semesters": [
+                                {
+                                    "_semesterId": "1111",
+                                    "semesterNumber": "1",
+                                    "_subejcts": ["Operating System-1", "Applied Mathematics III-1"]
+                                },
+                                {
+                                    "_semesterId": "1112",
+                                    "semesterNumber": "2",
+                                    "_subejcts": ["Operating System-2", "Applied Mathematics III-2"]
+                                },
+                                {
+                                    "_semesterId": "1113",
+                                    "semesterNumber": "3",
+                                    "_subejcts": ["Operating System-3", "Applied Mathematics III-3"]
+                                },
+                                {
+                                    "_semesterId": "1114",
+                                    "semesterNumber": "4",
+                                    "_subejcts": ["Operating System-4", "Applied Mathematics III-4"]
+                                },
+                                {
+                                    "_semesterId": "1115",
+                                    "semesterNumber": "5",
+                                    "_subejcts": ["Operating System-5", "Applied Mathematics III-5"]
+                                },
+                                {
+                                    "_semesterId": "1116",
+                                    "semesterNumber": "6",
+                                    "_subejcts": ["Operating System-6", "Applied Mathematics III-6"]
+                                },
+                                {
+                                    "_semesterId": "1117",
+                                    "semesterNumber": "7",
+                                    "_subejcts": ["Operating System-7", "Applied Mathematics III-7"]
+                                },
+                                {
+                                    "_semesterId": "1118",
+                                    "semesterNumber": "8",
+                                    "_subejcts": ["Operating System-8", "Applied Mathematics III-8"]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "all_coursesData": [
+                {
+                    "_courseId": "11",
+                    "_courseName": "B.Tech",
+                    "_branchesAndSubjects": [
+                        {"IT": ["Operating System", "Applied Mathematics III"]},
+                        {"ME": ["Material Science", "Production Technology"]}
+                    ],
+                    "semesters":["1","2","3","4","5","6","7","8"]
+
+                },
+                {
+                    "_courseId": "12",
+                    "_courseName": "B.Com",
+                    "_branchesAndSubjects": [
+                        {"Common": ["Entrepreneuship", "Microsoft Excel"]},
+                        {"Marketing": ["Marketing in Budget", "Macro Economy"]}
+                    ],
+                    "semesters":["1","2","3","4","5","6"]
+
+                }
+            ]
+        }
+    ]
+}
