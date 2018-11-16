@@ -27,6 +27,15 @@
       </select>
     </div>
 
+    <!--Course-->
+  <div class="form-group">
+      <label for="course">Course</label>
+      <select class="form-control" id="course" formControlName="courseName">
+          <option value="" disabled>Select Your Course...</option>
+        <option *ngFor="let course of courseNames" [value]="course">{{course}}</option>
+      </select>
+    </div>
+
     <!--Branch-->
   <div class="form-group">
       <label for="branch">Branch/Stream</label>
@@ -57,8 +66,12 @@
       <br>
       <h3>Your Subjects:</h3>
       <div class="selectedSub" *ngIf="mySubjects.length > 0">
+        <br>
         <ul>
-          <li *ngFor="let selectedSubject of mySubjects"><span>{{selectedSubject}}</span>  <button (click)="removeSubject(selectedSubject)" class="removeButton">X</button></li>
+          <li *ngFor="let selectedSubject of mySubjects" class="d-flex justify-content-start">
+            <p>{{selectedSubject}}</p>
+            <button type="button" (click)="removeSubject(selectedSubject)" class="removeButton btn btn-danger">X</button>
+          </li>
         </ul>
       </div>
     </div>
@@ -77,7 +90,7 @@ University: {{universityName}} <br>
 College: {{collegeName}} <br>
 Branch: {{branchName}} <br>
 Semester: {{semesterName}} <br>
-Subject: {{subjectName}} <br>
+My Subjects: {{mySubjects | json}} <br>
 <br>
 <br> 
 

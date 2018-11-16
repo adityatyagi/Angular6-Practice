@@ -2,8 +2,15 @@
     font-weight: 600;
 }
 
-.selectedSub>ul>li>span{
-    
+.selectedSub>ul>li>p{
+    width: 14rem;
+    position: relative;
+    top: 0.4em;
+}
+
+.selectedSub>ul>li{
+    margin-bottom: 1rem;
+    line-height: 1rem;
 }
 
 .removeButton{

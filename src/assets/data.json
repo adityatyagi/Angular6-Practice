@@ -3,17 +3,19 @@
         {
             "_id": "001",
             "name": "Guru Gobind Singh Indraprastha University",
+            "courses": ["B.Tech","B.Com","LLB","BBA"],
             "colleges": ["NIEC","Amity University","GTBIT","BVP","BMIET","IIT Delhi"],
             "branches": ["IT","CSE","MAE","ECE","EEE","ME","CIVIL"],
             "semesters": ["1","2","3","4","5","6","7","8"],
             "subjects": [
-                {"IT": ["Operating System", "Applied Mathematics III"]},
+                {"IT": ["Operating System", "Applied Mathematics III","Material Science", "Production Technology"]},
                 {"ME": ["Material Science", "Production Technology"]}
             ]
         },
         {
             "_id": "002",
             "name": "Rajasthan Technical University",
+            "courses": ["B.Tech","B.Com","LLB","BBA"],
             "colleges": ["NIEC","Amity University","GTBIT","BVP","BMIET","IIT Delhi"],
             "branches": ["IT","CSE","MAE","ECE","EEE","ME","CIVIL"],
             "semesters": ["1","2","3","4","5","6","7","8"],

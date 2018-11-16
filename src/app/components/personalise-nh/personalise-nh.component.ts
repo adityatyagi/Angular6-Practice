@@ -7,6 +7,7 @@ import { of, Observable } from 'rxjs';
 export interface Universities {
     _id: string;
     name: string;
+    courses: string[];
     colleges: string[];
     branches: string[];
     semesters: string[];
@@ -35,6 +36,7 @@ export class PersonaliseNhComponent implements OnInit {
 
   // filling form selects
   uNames: any = [];
+  courseNames: any = [];
   cNames: any = [];
   bNames: any = [];
   sNames: any = [];
@@ -44,6 +46,7 @@ export class PersonaliseNhComponent implements OnInit {
   // initialise the form
   personalForm = this.fb.group({
     universityName: [''],
+    courseName: [''],
     collegeName: [''],
     branchName: [''],
     semesterName: [''],
@@ -71,6 +74,10 @@ export class PersonaliseNhComponent implements OnInit {
     return this.personalForm.get('subjectName').value;
   }
 
+  get courseName() {
+    return this.personalForm.get('courseName').value;
+  }
+
   // my subjects
   mySubjects: string[] = ['Operating System', 'Production Technology'];
   // ------------------------------------------ Class Methods -----------------------------------------------
@@ -93,8 +100,8 @@ export class PersonaliseNhComponent implements OnInit {
     return this.http.get<Universities[]>(this.nhDataUrl);
   }
 
+  // fetch + populate data in personalForm
   fetchData() {
-    console.log('Loading Status: ' + this.loadings );
     this.getData2().subscribe((data: Universities[]) => {
       this.universityData = data;
       this.populateData();
@@ -112,6 +119,7 @@ export class PersonaliseNhComponent implements OnInit {
     this.bNames = this.universityData['universities'][0].branches;
     this.cNames = this.universityData['universities'][0].colleges;
     this.sNames = this.universityData['universities'][0].semesters;
+    this.courseNames = this.universityData['universities'][0].courses;
 
     // fetch branch name
     const subjectKey =  Object.keys(this.universityData['universities'][0].subjects[0])[0];
@@ -122,15 +130,45 @@ export class PersonaliseNhComponent implements OnInit {
 
   // submit personal form
   onSubmitPersonalForm() {
-    alert('Changes accepted.');
-    console.log('Form Values: ', this.personalForm.value);
+    alert('Dashboard settings saved.');
+
+    // object to send to save/update api
+    const profileFormDetails = {
+      'university': this.universityName,
+      'course': this.courseName,
+      'college': this.collegeName,
+      'branch': this.branchName,
+      'semester': this.semesterName,
+      'subjects': this.mySubjects
+    };
+    console.log(profileFormDetails);
   }
 
-  // add subject
-  addSubject() {
-    alert('Subject Added.');
+  // remove from my subjects
+  removeSubject(subject) {
+    const deleteAtIndex = this.mySubjects.indexOf(subject);
+    if (deleteAtIndex >= 0) {
+      const removeResponse = confirm('Do you want to remove ' + subject + ' from your dashboard?');
+      if (removeResponse) {
+        this.mySubjects.splice(deleteAtIndex, 1);
+        alert('Subject: ' + subject + ' removed.');
+      } else {
+        return false;
+      }
+    } else {
+      alert('Please select a subject to delete.');
+    }
   }
-  
+
+  // add subject to my subjects
+  addSubject() {
+    if (this.mySubjects.indexOf(this.subjectName) >= 0) {
+      alert(this.subjectName + ' is already present.');
+    } else {
+      this.mySubjects.unshift(this.subjectName);
+      alert(this.subjectName + ' added!');
+    }
+  }
   // ------------------------------ Constructor AND ngOnInit ----------------------------------
   constructor(private http: HttpClient, private fb: FormBuilder) { }
 
