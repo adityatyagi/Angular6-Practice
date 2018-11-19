@@ -3,20 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { delay, share } from 'rxjs/operators';
 import { of, Observable } from 'rxjs';
-
-export interface Universities {
-    _id: string;
-    name: string;
-    courses: string[];
-    colleges: string[];
-    branches: string[];
-    semesters: string[];
-    subjects: [
-      {
-        branch: string[]
-      }
-    ];
-}
+import { NhDataService } from 'src/app/shared/services/nh-data.service';
+import { UniversitySpecificData } from './UniversitySpecificData';
+import { Universities } from './Universities';
 
 @Component({
   selector: 'app-personalise-nh',
@@ -34,7 +23,10 @@ export class PersonaliseNhComponent implements OnInit {
   nhDataUrl = 'http://localhost:4200/assets/data.json';
   universityData: Universities[] = [];
 
-  // filling form selects
+  // university specific data
+  universitySpecificData: UniversitySpecificData[] = [];
+
+  // initialising form fields
   uNames: any = [];
   courseNames: any = [];
   cNames: any = [];
@@ -169,13 +161,23 @@ export class PersonaliseNhComponent implements OnInit {
       alert(this.subjectName + ' added!');
     }
   }
+
+  // get university specific data
+  getUniversityData() {
+    this.nhData.getSpecificData().subscribe((data: UniversitySpecificData[]) => {
+      this.universitySpecificData = data;
+      console.log('universitySpecificData: ',  this.universitySpecificData);
+    });
+  }
   // ------------------------------ Constructor AND ngOnInit ----------------------------------
-  constructor(private http: HttpClient, private fb: FormBuilder) { }
+  constructor(private http: HttpClient, private fb: FormBuilder, private nhData: NhDataService) { }
 
   ngOnInit() {
     this.fetchData();
     // test
     this.user = this.getAsyncData().pipe(share());
-  }
 
+    // get university specific data
+    this.getUniversityData();
+  }
 }

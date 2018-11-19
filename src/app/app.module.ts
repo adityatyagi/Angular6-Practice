@@ -41,6 +41,7 @@ import { PersonaliseNhComponent } from './components/personalise-nh/personalise-
 
 // Http
 import { HttpClientModule } from '@angular/common/http';
+import { PrettyPrintPipe } from './shared/pipes/pretty-print.pipe';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { HttpClientModule } from '@angular/common/http';
     HeroListComponent,
     PageNotFoundComponent,
     ReactiveForms2Component,
-    PersonaliseNhComponent
+    PersonaliseNhComponent,
+    PrettyPrintPipe
   ],
   imports: [
     BrowserModule,
