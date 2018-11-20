@@ -42,6 +42,7 @@ import { PersonaliseNhComponent } from './components/personalise-nh/personalise-
 // Http
 import { HttpClientModule } from '@angular/common/http';
 import { PrettyPrintPipe } from './shared/pipes/pretty-print.pipe';
+import { PdfViewer2Component } from './components/pdf-viewer2/pdf-viewer2.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { PrettyPrintPipe } from './shared/pipes/pretty-print.pipe';
     PageNotFoundComponent,
     ReactiveForms2Component,
     PersonaliseNhComponent,
-    PrettyPrintPipe
+    PrettyPrintPipe,
+    PdfViewer2Component
   ],
   imports: [
     BrowserModule,

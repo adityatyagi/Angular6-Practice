@@ -1,0 +1,17 @@
+<h2>PDF Viewer 2</h2>
+<br>
+<div class="container-fluid">
+  <div class="row no-gutters">
+    <div class="col-lg-8 col-md-8 col-sm-12">
+      <div class="pdf-viewer">
+        <iframe [src]="trustedUrl" allowfullscreen
+          webkitallowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-12">
+      <div class="download-btn d-flex justify-content-center">
+        <button class="btn btn-primary"><a target="_blank" href="http://localhost:4200/src/assets/PDF/{{pdfName}}#viewer.action=download">Download</a></button>
+      </div>
+    </div>
+  </div>
+</div>
