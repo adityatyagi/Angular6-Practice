@@ -17,6 +17,11 @@ import {MatButtonModule} from '@angular/material/button';
 import { ReactiveFormsComponent } from './components/reactive-forms/reactive-forms.component';
 import { TemplateFormsComponent } from './components/template-forms/template-forms.component';
 
+// recently uploaded table
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+
 // for template-driven forms
 import { FormsModule } from '@angular/forms';
 import { FormValidationComponent } from './components/form-validation/form-validation.component';
@@ -43,6 +48,7 @@ import { PersonaliseNhComponent } from './components/personalise-nh/personalise-
 import { HttpClientModule } from '@angular/common/http';
 import { PrettyPrintPipe } from './shared/pipes/pretty-print.pipe';
 import { PdfViewer2Component } from './components/pdf-viewer2/pdf-viewer2.component';
+import { RecentUploadsComponent } from './components/recent-uploads/recent-uploads.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +75,8 @@ import { PdfViewer2Component } from './components/pdf-viewer2/pdf-viewer2.compon
     ReactiveForms2Component,
     PersonaliseNhComponent,
     PrettyPrintPipe,
-    PdfViewer2Component
+    PdfViewer2Component,
+    RecentUploadsComponent
   ],
   imports: [
     BrowserModule,
@@ -78,6 +85,9 @@ import { PdfViewer2Component } from './components/pdf-viewer2/pdf-viewer2.compon
     BrowserAnimationsModule,
     PdfViewerModule,
     MatButtonModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
     MatAutocompleteModule,
     MatFormFieldModule,
     MatProgressSpinnerModule,
