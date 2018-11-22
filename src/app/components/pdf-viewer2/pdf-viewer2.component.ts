@@ -8,7 +8,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class PdfViewer2Component implements OnInit {
   pdfName = 'demo.pdf';
-  PdfUrl = `http://localhost:4200/ViewerJS/#../src/assets/PDF/${this.pdfName}`;
+  PdfUrl = `http://localhost:4401/ViewerJS/#../src/assets/PDF/${this.pdfName}`;
 
   trustedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`${this.PdfUrl}`);
   constructor(private sanitizer: DomSanitizer) { }
