@@ -1,19 +1,28 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  color: string;
+export interface RecentlyUploaded {
+  id: number;
+  topic: string;
+  subject: string;
+  uploaded_on: string;
+  downloads: string;
+  rating: string;
 }
 
 /* Constants used to fill up our data base. */
-const COLORS: string[] = ['maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple',
-  'fuchsia', 'lime', 'teal', 'aqua', 'blue', 'navy', 'black', 'gray'];
-const NAMES: string[] = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack',
-  'Charlotte', 'Theodore', 'Isla', 'Oliver', 'Isabella', 'Jasper',
-  'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'];
+const ELEMENT_DATA: RecentlyUploaded[] = [
+  {id: 1, topic: 'Hydrogen', subject: 'Sample subject 1', uploaded_on: '1 November, 2018', downloads: '44', rating: '4'},
+  {id: 2, topic: 'Hydrogen', subject: 'Sample subject 1', uploaded_on: '1 November, 2018', downloads: '44', rating: '4'},
+  {id: 3, topic: 'Hydrogen', subject: 'Sample subject 1', uploaded_on: '1 November, 2018', downloads: '44', rating: '4'},
+  {id: 4, topic: 'Hydrogen', subject: 'Sample subject 1', uploaded_on: '1 November, 2018', downloads: '44', rating: '4'},
+  {id: 5, topic: 'Hydrogen', subject: 'Sample subject 1', uploaded_on: '1 November, 2018', downloads: '44', rating: '4'},
+  {id: 6, topic: 'Hydrogen', subject: 'Sample subject 1', uploaded_on: '1 November, 2018', downloads: '44', rating: '4'},
+  {id: 7, topic: 'Hydrogen', subject: 'Sample subject 1', uploaded_on: '1 November, 2018', downloads: '44', rating: '4'},
+  {id: 8, topic: 'Hydrogen', subject: 'Sample subject 1', uploaded_on: '1 November, 2018', downloads: '44', rating: '4'},
+  {id: 9, topic: 'Hydrogen', subject: 'Sample subject 1', uploaded_on: '1 November, 2018', downloads: '44', rating: '4'},
+  {id: 10, topic: 'Hydrogen', subject: 'Sample subject 1', uploaded_on: '1 November, 2018', downloads: '44', rating: '4'},
+];
 
 @Component({
   selector: 'app-recent-uploads',
@@ -21,18 +30,17 @@ const NAMES: string[] = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack',
   styleUrls: ['./recent-uploads.component.css']
 })
 export class RecentUploadsComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'progress', 'color'];
-  dataSource: MatTableDataSource<UserData>;
+  displayedColumns: string[] = ['id', 'topic', 'subject', 'uploaded_on', 'downloads', 'rating'];
+  dataSource: MatTableDataSource<RecentlyUploaded>;
+  users: RecentlyUploaded[];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor() { 
-    // Create 100 users
-    const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
-
+  constructor() {
+    this.users = ELEMENT_DATA;
     // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
+    this.dataSource = new MatTableDataSource(this.users);
   }
 
   ngOnInit() {
@@ -47,18 +55,4 @@ export class RecentUploadsComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-}
-
-/** Builds and returns a new User. */
-function createNewUser(id: number): UserData {
-  const name =
-      NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-      NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
-
-  return {
-    id: id.toString(),
-    name: name,
-    progress: Math.round(Math.random() * 100).toString(),
-    color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
-  };
 }
