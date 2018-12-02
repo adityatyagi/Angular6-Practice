@@ -1,6 +1,30 @@
 <br>
 <br>
 <!--The content below is only a placeholder and can be replaced.-->
+<!--Routing Example-->
+<div class="container">
+    <h1>Angular Router</h1>
+    <nav>
+        <a routerLink="/crisis-center" routerLinkActive="active" class="btn btn-primary btn-margin">Crisis Center</a>
+        <a routerLink="/heroes" routerLinkActive="active" class="btn btn-warning btn-margin">Heroes</a>
+
+        <!--Profile Routes-->
+        <a routerLink="/profile" routerLinkActive="active" class="btn btn-warning btn-margin" (click)="toggleProfileMenu()">Profile</a>
+        <div *ngIf="showProfileMenu">
+            <a routerLink="/profile/manage-user" routerLinkActive="active" class="btn btn-warning btn-margin">Manage User</a>
+            <a routerLink="/profile/settings" routerLinkActive="active" class="btn btn-warning btn-margin">Settings</a>
+        </div>
+        <!--To check the wildcard route-->
+        <button routerLink="/sidekicks" class="btn btn-default btn-margin">Check sidekicks (Wildcard Routes)</button><br>
+    </nav>
+    <br>
+    <br>
+    <router-outlet></router-outlet>
+</div>
+<br>
+<br>
+<hr>
+<br>
 <!--PDF Viewer 2-->
 <div class="container">
     <app-recent-uploads></app-recent-uploads>
@@ -29,23 +53,6 @@
 <br>
 <hr>
 <br>
-<!--Routing Example-->
-<div class="container">
-    <h1>Angular Router</h1>
-<nav>
-  <a routerLink="/crisis-center" routerLinkActive="active" class="btn btn-primary btn-margin">Crisis Center</a>
-  <a routerLink="/heroes" routerLinkActive="active" class="btn btn-warning btn-margin">Heroes</a>
-  <!--To check the wildcard route-->
-  <button routerLink="/sidekicks" class="btn btn-default btn-margin">Check sidekicks (Wildcard Routes)</button><br>
-</nav>
-<br>
-<br>
-<router-outlet></router-outlet>
-</div>
-<br>
-<br>
-<hr>
-<br>
 <br>
 <div class="container">
     <!--lazy loading-->
@@ -60,7 +67,7 @@
 <hr>
 <br>
 <div class="container">
-   <!--Observables-->
+    <!--Observables-->
     <app-observ></app-observ>
 </div>
 <hr>
@@ -73,8 +80,8 @@
 <br>
 <br>
 <div class="container">
-<h2>Job Application for Heroes</h2>
-<app-dynamic-form [questions]="questions"></app-dynamic-form>
+    <h2>Job Application for Heroes</h2>
+    <app-dynamic-form [questions]="questions"></app-dynamic-form>
 </div>
 <br>
 <hr>
@@ -88,4 +95,3 @@
 <app-autofill></app-autofill>
 <hr>
 <app-pdf-viewer></app-pdf-viewer>
-

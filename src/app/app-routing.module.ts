@@ -27,11 +27,6 @@ const routes: Routes = [
       redirectTo: '/heroes',
       pathMatch: 'full'
     },
-    // {
-    //   path: '',
-    //   redirectTo: '',
-    //   pathMatch: 'full'
-    // },
     {
       path: '**',
       component: PageNotFoundComponent

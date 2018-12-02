@@ -49,6 +49,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PrettyPrintPipe } from './shared/pipes/pretty-print.pipe';
 import { PdfViewer2Component } from './components/pdf-viewer2/pdf-viewer2.component';
 import { RecentUploadsComponent } from './components/recent-uploads/recent-uploads.component';
+import { ProfileModule } from './profile/profile.module';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,7 @@ import { RecentUploadsComponent } from './components/recent-uploads/recent-uploa
     PersonaliseNhComponent,
     PrettyPrintPipe,
     PdfViewer2Component,
-    RecentUploadsComponent
+    RecentUploadsComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,6 +94,8 @@ import { RecentUploadsComponent } from './components/recent-uploads/recent-uploa
     MatProgressSpinnerModule,
     FormsModule,
     HttpClientModule,
+    // Profile Module - before app routing module
+    ProfileModule,
     AppRoutingModule,
     HeroesModule
   ],

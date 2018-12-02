@@ -10,8 +10,14 @@ import { QuestionService } from './question.service';
 export class AppComponent {
   questions: any[];
   title = 'pdf-example';
+  // tslint:disable-next-line:no-inferrable-types
+  showProfileMenu: boolean = false;
 
   constructor(service: QuestionService) {
     this.questions = service.getQuestions();
+  }
+
+  toggleProfileMenu() {
+    this.showProfileMenu = !this.showProfileMenu;
   }
 }
